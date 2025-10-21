@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Reqres API Test Suite" parallel="false">
+
+    <!-- First run RegisterTest -->
+    <test name="Register User Test">
+        <classes>
+            <class name="tests.RegisterTest" />
+        </classes>
+    </test>
+
+    <!-- Then run LoginTest -->
+    <test name="Login User Test">
+        <classes>
+            <class name="tests.LoginTest" />
+        </classes>
+    </test>
+
+</suite>

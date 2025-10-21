@@ -15,5 +15,11 @@
             <class name="tests.LoginTest" />
         </classes>
     </test>
+    <!-- Then run LoginTest -->
+    <test name="Get Users By Page">
+        <classes>
+            <class name="tests.UsersTest" />
+        </classes>
+    </test>
 
 </suite>

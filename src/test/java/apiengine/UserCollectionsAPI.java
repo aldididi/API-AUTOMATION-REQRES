@@ -2,7 +2,6 @@ package apiengine;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
-import utils.ConfigReader;
 
 public class UserCollectionsAPI {
     public Response userRegister(String requestBody){
@@ -22,6 +21,14 @@ public class UserCollectionsAPI {
                 .header("x-api-key","reqres-free-v1")
                 .body(requestBody).log().all()
                 .when().post(Endpoints.LOGIN);
+
+    }
+
+    public Response usersList(int pageNumber){
+        return RestAssured.given()
+                .baseUri("https://reqres.in/api")
+                .header("Content-Type", "application/json")
+                .when().get(Endpoints.USERSBYPAGE+pageNumber);
 
     }
 }

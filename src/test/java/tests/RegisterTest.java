@@ -44,12 +44,12 @@ public class RegisterTest extends TestBase {
     }
 
 
-//    @Test
-//    public void getUsersByPage() {
-//        System.out.println("getUsersByPage");
-//        RestAssured.given().baseUri("https://reqres.in/api")
-//                .header("Content-Type", "application/json")
-//                .when().get("/users?page=4")
-//                .then().assertThat().statusCode(200).log().all();
-//    }
+    @Test
+    public void getUsersByPage() {
+        System.out.println("getUsersByPage");
+        RestAssured.given().baseUri("https://reqres.in/api")
+                .header("Content-Type", "application/json")
+                .when().get("/users?page=2")
+                .then().assertThat().statusCode(200).log().all();
+    }
 }

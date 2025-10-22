@@ -24,10 +24,18 @@ public class LoginTest extends TestBase {
 
     @Test
     public void loginWrongPassword() {
-        String reqBody = Payload.userMissingEmailLogin("eve.holt@reqres.in", "pistol12");
+        String reqBody = Payload.userWrongPassword("eve.holt@reqres.in", "pistol12asdasd");
         Response response = userApi.userLogin(reqBody);
-        Assert.assertEquals(response.statusCode(), 400, "wrong password");
+        Assert.assertEquals(response.statusCode(), 200, "wrong password but able to login");
         System.out.println(response.asPrettyString());
+    }
+    @Test
+    public void loginWrongEmail() {
+        String reqBody = Payload.userWrongEmail("eve.holt@reqres.inasd", "pistol12");
+        Response response = userApi.userLogin(reqBody);
+        Assert.assertEquals(response.statusCode(), 400, "user not found");
+        System.out.println(response.asPrettyString());
+
     }
 
     @Test

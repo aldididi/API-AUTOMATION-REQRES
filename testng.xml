@@ -8,17 +8,24 @@
             <class name="tests.RegisterTest" />
         </classes>
     </test>
-
-    <!-- Then run LoginTest -->
     <test name="Login User Test">
         <classes>
             <class name="tests.LoginTest" />
         </classes>
     </test>
-    <!-- Then run LoginTest -->
     <test name="Get Users By Page">
         <classes>
             <class name="tests.UsersTest" />
+        </classes>
+    </test>
+    <test name="Get User Details">
+        <classes>
+            <class name="tests.UserDetailsTest" />
+        </classes>
+    </test>
+    <test name="Delete User">
+        <classes>
+            <class name="tests.DeleteUser" />
         </classes>
     </test>
 

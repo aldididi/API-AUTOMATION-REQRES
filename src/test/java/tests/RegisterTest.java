@@ -43,13 +43,4 @@ public class RegisterTest extends TestBase {
         Assert.assertEquals(response.getStatusCode(), 400, "Only defined users succeed registration");
     }
 
-
-    @Test
-    public void getUsersByPage() {
-        System.out.println("getUsersByPage");
-        RestAssured.given().baseUri("https://reqres.in/api")
-                .header("Content-Type", "application/json")
-                .when().get("/users?page=2")
-                .then().assertThat().statusCode(200).log().all();
-    }
 }

@@ -4,7 +4,7 @@ This project provides automated tests for the [https://reqres.in/#try-api] API u
 
 ## Prerequisites
 
-- latest Java 24
+- Java 17 and above
 - Maven
 - Internet connection (for API calls and dependency downloads)
 

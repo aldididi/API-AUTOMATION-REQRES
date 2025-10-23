@@ -1,4 +1,4 @@
-# API Automation Personal Project
+# API Automation Reqres Project
 
 This project provides automated tests for the [https://reqres.in/#try-api] API using Java, TestNG, RestAssured.
 

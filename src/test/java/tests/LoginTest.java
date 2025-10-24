@@ -1,14 +1,13 @@
 package tests;
 
 import apiengine.UserCollectionsAPI;
-import base.TestBase;
-import io.restassured.RestAssured;
+import org.example.base.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import payloads.Payload;
 
-public class LoginTest extends TestBase {
+public class LoginTest extends BaseTest {
     String token;
     UserCollectionsAPI userApi = new UserCollectionsAPI();
 

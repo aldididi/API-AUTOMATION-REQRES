@@ -1,13 +1,13 @@
-package base;
+package org.example.base;
 
 import io.restassured.RestAssured;
-import org.testng.annotations.BeforeClass;
-import utils.ConfigReader;
+import org.example.utils.ConfigReader;
+import org.junit.BeforeClass;
 
-public class TestBase {
+public class BaseTest {
 
     @BeforeClass
-    public void setup() {
+    public static void setup() {
         RestAssured.baseURI = ConfigReader.getProperty("base.url");
         System.out.println("Base URI set to: " + RestAssured.baseURI);
     }

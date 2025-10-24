@@ -1,8 +1,7 @@
 package tests;
 
 import apiengine.UserCollectionsAPI;
-import base.TestBase;
-import io.restassured.RestAssured;
+import org.example.base.BaseTest;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,7 +9,7 @@ import payloads.Payload;
 
 import static io.restassured.RestAssured.given;
 
-public class RegisterTest extends TestBase {
+public class RegisterTest extends BaseTest {
     String token;
     UserCollectionsAPI userApi = new UserCollectionsAPI();
 

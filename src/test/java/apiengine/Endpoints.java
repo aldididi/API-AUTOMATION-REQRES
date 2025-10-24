@@ -1,6 +1,6 @@
 package apiengine;
 
-import utils.ConfigReader;
+import org.example.utils.ConfigReader;
 
 public class Endpoints {
     public static final String BASE_URL= ConfigReader.getProperty("base.url");

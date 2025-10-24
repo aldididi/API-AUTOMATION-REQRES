@@ -9,6 +9,7 @@ import static io.restassured.RestAssured.given;
 public class UserCollectionsAPI {
     public Response userRegister(String requestBody){
         return RestAssured.given()
+                .baseUri(Endpoints.BASE_URL)
                 .header("Content-Type", "application/json")
                 .header("accept", "application/json")
                 .header("x-api-key","reqres-free-v1")

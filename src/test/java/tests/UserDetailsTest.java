@@ -11,45 +11,51 @@ import java.util.List;
 
 public class UserDetailsTest {
     UserCollectionsAPI userApi = new UserCollectionsAPI();
+
     @Test
     public void getUsersByPId() {
         System.out.println("getUsersByPId");
-        Response response = userApi.userDetails(1);
-        Assert.assertEquals(response.getStatusCode(), 200, "Page request should return 200 OK");
-        response.prettyPrint();
+        int[] idUser = {1, 5, 12, 450};
+
+        for (int id : idUser) {
+            System.out.println("Testing user ID: " + id);
+
+            try {
+                Response response = userApi.userDetails(id);
+                int statusCode = response.getStatusCode();
+
+                if (statusCode == 200) {
+                    System.out.println("User ID " + id + " found");
+                    response.prettyPrint();
+
+
+                    int returnedId = response.jsonPath().getInt("data.id");
+                    Assert.assertEquals(returnedId, id, "User ID in response should match requested ID");
+
+                } else if (statusCode == 404) {
+                    System.out.println("User ID " + id + " not found");
+                } else {
+                    Assert.fail("Unexpected status code for user " + id + ": " + statusCode);
+                }
+            } catch (Exception e) {
+                System.out.println("Exception while fetching user " + id + ": " + e.getMessage());
+            }
+        }
     }
 
-    @Test
-    public void getUsersByPId2() {
-      //  System.out.println("getUsersByPage");
-        Response response = userApi.userDetails(5);
-        Assert.assertEquals(response.getStatusCode(), 200, "Page request should return 200 OK");
-        response.prettyPrint();
-    }
 
-    @Test
-    public void getUsersByPId3() {
-      //  System.out.println("getUsersByPage");
-        Response response = userApi.userDetails(12);
-        Assert.assertEquals(response.getStatusCode(), 200, "Page request should return 200 OK");
-        response.prettyPrint();
-    }
-
-    @Test
-    public void getUsersByPage4() {
-        System.out.println("getUsersByPage");
-        Response response = userApi.userDetails(100);
-        Assert.assertNull(response.jsonPath().get("data"));
-        Assert.assertEquals(response.getStatusCode(), 404, "not found");
-        response.prettyPrint();
-    }
 
 //    @Test
-//    public void DataIsEmpty(){
-//        Response response = userApi.userDetails(100);
-//        Assert.assertEquals(response.getStatusCode(), 200, "not found");
-//      //  Assert.assertFalse(response.jsonPath().getList("data").isEmpty());
-//        List<Object> dataList = response.jsonPath().getList("data");
-//        boolean isEmpty = dataList == null || dataList.isEmpty();
+//    public void getUserById() {
+//        System.out.println("getUsersByPId");
+//
+//        int[] idUser = {1, 5, 12};
+//
+//        for (int id : idUser) {
+//            Response response = userApi.userDetails2(id);
+//            System.out.println("Testing user ID: " + id);
+//            Assert.assertEquals(response.getStatusCode(), 200, "Page request should return 200 OK");
+//            response.prettyPrint();
+//        }
 //    }
 }

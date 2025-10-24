@@ -9,7 +9,6 @@ import static io.restassured.RestAssured.given;
 public class UserCollectionsAPI {
     public Response userRegister(String requestBody){
         return RestAssured.given()
-                .baseUri(Endpoints.BASE_URL)
                 .header("Content-Type", "application/json")
                 .header("accept", "application/json")
                 .header("x-api-key","reqres-free-v1")
@@ -43,6 +42,14 @@ public class UserCollectionsAPI {
                 .header("Content-Type", "application/json")
                  .header("x-api-key","reqres-free-v1").log().all()
                 .when().get(Endpoints.USERSBYID +userId);
+
+    }
+    public Response userDetails2(int userId){
+        return RestAssured.given()
+                .baseUri(Endpoints.BASE_URL)
+                .header("Content-Type", "application/json")
+                .header("x-api-key","reqres-free-v1").log().all()
+                .when().get(Endpoints.USERSBYID+ "/" + userId);
 
     }
 
